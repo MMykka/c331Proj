@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+.shadows-into-light-regular {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+.black {
+    color: #000;
+}
+
+.white {
+    color: #eee;
+}
+
+.yellow {
+    color: #f8b411;
+}
+
+.gray {
+    color: #999987;
+
+}
+
+.titles {
+    font-size: 100px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +36,10 @@
 
 body{
     background: url(img/bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+background-position: center top;
 }
 .sectionone {
     max-width: 70%;
@@ -30,13 +62,12 @@ body{
 
 .sectionone div h1 {
     font-size: 25px;
-    color: #f8b411;
     letter-spacing: 2.5px;
 }
 
 .sectionone div h2 {
     font-size: 100px;
-    color: #eee;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .sectionone div p {
@@ -62,3 +93,155 @@ body{
     letter-spacing: 3px;
     color: #eee;
 }
+
+
+/* section two */
+.sectiontwo {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 70px;
+    margin: 0 auto;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.sectiontwo div h1 {
+    font-size: 25px;
+    letter-spacing: 2.5px;
+}
+
+.sectiontwo div h2 {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.sectiontwo div p {
+    font-size: 25px;
+}
+
+.historydiv {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    background-color: #fcd417;
+    border-radius: 60px;
+    flex-direction: column;
+    
+
+}
+
+
+.histbg {
+    width: 100%;
+    background:linear-gradient(45deg, rgba(18, 18, 18, 0.788) 0%, rgba(18, 18, 18, 0.69) 100%), url(img/container01.jpg);
+    background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      border-radius: 45px  45px 0 0;
+      background-position: center top;
+}
+.histone {
+      padding: 50px;
+      text-wrap: wrap;
+      display: flex;
+
+
+
+}
+
+.histone .hpart1 {
+    padding: 30px;
+    width: 50%;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.histone .hpart2 {
+    padding: 30px;
+    text-wrap: wrap;
+    width: 50%;
+    border-left: solid 1px rgba(255, 255, 255, 0.09);
+}
+.histone div p{
+    color: #999987;
+    font-size: 30px;
+    margin-top: 5px;
+    text-align: left;
+    line-height: 50px;
+    margin-top: 25px;
+}
+
+
+.histone div h2 {
+    font-size: 70px;
+    margin-top: 5px;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.histone div h1 {
+    font-size: 22px;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.buttonone {
+    border-radius: 50px;
+    padding: 20px 30px 20px 30px;
+    border: #f8b411 solid 1px;
+    background-color: #21212100;
+    color: #eee;
+    font-size: 30px;
+    letter-spacing: 2.5px;
+    margin-top: 20px;
+}
+
+.buttontwo {
+    border-radius: 50px;
+    padding: 20px 30px 20px 30px;
+    border: #f8b411 solid 1px;
+    background-color: #000;
+    color: #f8b411;
+    font-size: 30px;
+    letter-spacing: 2.5px;
+    margin-top: 40px;
+}
+
+.histtwo {
+    padding: 70px;
+    width: 100%;
+    background: url(img/bghist.svg);
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 891px;
+
+}
+
+.histtwo p{
+
+    font-size: 30px;
+    margin-top: 5px;
+    line-height: 50px;
+    margin-top: 25px;
+}
+
+
+.histtwo h2 {
+    font-size: 80px;
+    margin-top: 5px;
+    margin-top: 25px;
+}
+
+.histtwo h1 {
+    font-size: 22px;
+    margin-top: 25px;
+}
+
+
+
+
+
