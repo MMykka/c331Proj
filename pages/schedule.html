@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/schedule.css">
+    <title>College Class Schedule</title>
+</head>
+<body>
+    <div class="container">
+        <h1>College Class Schedule</h1>
+        
+        <button class="toggle-button" id="viewToggle">Switch to Card View</button>
+        
+        <div class="schedule-container" id="tableView">
+            <table>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+                <tr>
+                    <td class="time-column">8:00 - 9:15</td>
+                    <td class="class-math">Calculus II<br>Room 302</td>
+                    <td class="class-english">English Composition<br>Room 145</td>
+                    <td class="class-math">Calculus II<br>Room 302</td>
+                    <td class="class-english">English Composition<br>Room 145</td>
+                    <td class="class-math">Calculus II<br>Room 302</td>
+                </tr>
+                <tr>
+                    <td class="time-column">9:30 - 10:45</td>
+                    <td class="class-science">Chemistry<br>Room 215</td>
+                    <td class="class-history">U.S. History<br>Room 180</td>
+                    <td class="class-science">Chemistry<br>Room 215</td>
+                    <td class="class-history">U.S. History<br>Room 180</td>
+                    <td class="study">Study Time<br>Library</td>
+                </tr>
+                <tr>
+                    <td class="time-column">11:00 - 12:15</td>
+                    <td class="class-elective">Computer Science<br>Room 405</td>
+                    <td class="study">Study Time<br>Library</td>
+                    <td class="class-elective">Computer Science<br>Room 405</td>
+                    <td class="study">Study Time<br>Library</td>
+                    <td class="class-elective">Computer Science<br>Room 405</td>
+                </tr>
+                <tr>
+                    <td class="time-column">12:15 - 1:00</td>
+                    <td class="lunch" colspan="5">Lunch Break</td>
+                </tr>
+                <tr>
+                    <td class="time-column">1:00 - 2:15</td>
+                    <td class="class-history">Psychology<br>Room 220</td>
+                    <td class="class-science">Chemistry Lab<br>Room 210</td>
+                    <td class="class-history">Psychology<br>Room 220</td>
+                    <td class="class-science">Chemistry Lab<br>Room 210</td>
+                    <td class="study">Study Time<br>Library</td>
+                </tr>
+                <tr>
+                    <td class="time-column">2:30 - 3:45</td>
+                    <td class="class-elective">Public Speaking<br>Room 120</td>
+                    <td class="study">Study Group<br>Student Center</td>
+                    <td class="class-elective">Public Speaking<br>Room 120</td>
+                    <td class="study">Study Group<br>Student Center</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="time-column">4:00 - 5:15</td>
+                    <td></td>
+                    <td class="class-english">Literature<br>Room 148</td>
+                    <td></td>
+                    <td class="class-english">Literature<br>Room 148</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Card view for mobile -->
+        <div class="card-view" id="cardView">
+            <!-- Monday -->
+            <div class="day-card">
+                <div class="day-header">Monday</div>
+                <div class="class-item class-math">
+                    <div class="class-time">8:00 - 9:15</div>
+                    <div>Calculus II</div>
+                    <div>Room 302</div>
+                </div>
+                <div class="class-item class-science">
+                    <div class="class-time">9:30 - 10:45</div>
+                    <div>Chemistry</div>
+                    <div>Room 215</div>
+                </div>
+                <div class="class-item class-elective">
+                    <div class="class-time">11:00 - 12:15</div>
+                    <div>Computer Science</div>
+                    <div>Room 405</div>
+                </div>
+                <div class="class-item lunch">
+                    <div class="class-time">12:15 - 1:00</div>
+                    <div>Lunch Break</div>
+                </div>
+                <div class="class-item class-history">
+                    <div class="class-time">1:00 - 2:15</div>
+                    <div>Psychology</div>
+                    <div>Room 220</div>
+                </div>
+                <div class="class-item class-elective">
+                    <div class="class-time">2:30 - 3:45</div>
+                    <div>Public Speaking</div>
+                    <div>Room 120</div>
+                </div>
+            </div>
+            
+            <!-- Tuesday -->
+            <div class="day-card">
+                <div class="day-header">Tuesday</div>
+                <div class="class-item class-english">
+                    <div class="class-time">8:00 - 9:15</div>
+                    <div>English Composition</div>
+                    <div>Room 145</div>
+                </div>
+                <div class="class-item class-history">
+                    <div class="class-time">9:30 - 10:45</div>
+                    <div>U.S. History</div>
+                    <div>Room 180</div>
+                </div>
+                <div class="class-item study">
+                    <div class="class-time">11:00 - 12:15</div>
+                    <div>Study Time</div>
+                    <div>Library</div>
+                </div>
+                <div class="class-item lunch">
+                    <div class="class-time">12:15 - 1:00</div>
+                    <div>Lunch Break</div>
+                </div>
+                <div class="class-item class-science">
+                    <div class="class-time">1:00 - 2:15</div>
+                    <div>Chemistry Lab</div>
+                    <div>Room 210</div>
+                </div>
+                <div class="class-item study">
+                    <div class="class-time">2:30 - 3:45</div>
+                    <div>Study Group</div>
+                    <div>Student Center</div>
+                </div>
+                <div class="class-item class-english">
+                    <div class="class-time">4:00 - 5:15</div>
+                    <div>Literature</div>
+                    <div>Room 148</div>
+                </div>
+            </div>
+            
+            <!-- Wednesday -->
+            <div class="day-card">
+                <div class="day-header">Wednesday</div>
+                <div class="class-item class-math">
+                    <div class="class-time">8:00 - 9:15</div>
+                    <div>Calculus II</div>
+                    <div>Room 302</div>
+                </div>
+                <div class="class-item class-science">
+                    <div class="class-time">9:30 - 10:45</div>
+                    <div>Chemistry</div>
+                    <div>Room 215</div>
+                </div>
+                <div class="class-item class-elective">
+                    <div class="class-time">11:00 - 12:15</div>
+                    <div>Computer Science</div>
+                    <div>Room 405</div>
+                </div>
+                <div class="class-item lunch">
+                    <div class="class-time">12:15 - 1:00</div>
+                    <div>Lunch Break</div>
+                </div>
+                <div class="class-item class-history">
+                    <div class="class-time">1:00 - 2:15</div>
+                    <div>Psychology</div>
+                    <div>Room 220</div>
+                </div>
+                <div class="class-item class-elective">
+                    <div class="class-time">2:30 - 3:45</div>
+                    <div>Public Speaking</div>
+                    <div>Room 120</div>
+                </div>
+            </div>
+            
+            <!-- Thursday -->
+            <div class="day-card">
+                <div class="day-header">Thursday</div>
+                <div class="class-item class-english">
+                    <div class="class-time">8:00 - 9:15</div>
+                    <div>English Composition</div>
+                    <div>Room 145</div>
+                </div>
+                <div class="class-item class-history">
+                    <div class="class-time">9:30 - 10:45</div>
+                    <div>U.S. History</div>
+                    <div>Room 180</div>
+                </div>
+                <div class="class-item study">
+                    <div class="class-time">11:00 - 12:15</div>
+                    <div>Study Time</div>
+                    <div>Library</div>
+                </div>
+                <div class="class-item lunch">
+                    <div class="class-time">12:15 - 1:00</div>
+                    <div>Lunch Break</div>
+                </div>
+                <div class="class-item class-science">
+                    <div class="class-time">1:00 - 2:15</div>
+                    <div>Chemistry Lab</div>
+                    <div>Room 210</div>
+                </div>
+                <div class="class-item study">
+                    <div class="class-time">2:30 - 3:45</div>
+                    <div>Study Group</div>
+                    <div>Student Center</div>
+                </div>
+                <div class="class-item class-english">
+                    <div class="class-time">4:00 - 5:15</div>
+                    <div>Literature</div>
+                    <div>Room 148</div>
+                </div>
+            </div>
+            
+            <!-- Friday -->
+            <div class="day-card">
+                <div class="day-header">Friday</div>
+                <div class="class-item class-math">
+                    <div class="class-time">8:00 - 9:15</div>
+                    <div>Calculus II</div>
+                    <div>Room 302</div>
+                </div>
+                <div class="class-item study">
+                    <div class="class-time">9:30 - 10:45</div>
+                    <div>Study Time</div>
+                    <div>Library</div>
+                </div>
+                <div class="class-item class-elective">
+                    <div class="class-time">11:00 - 12:15</div>
+                    <div>Computer Science</div>
+                    <div>Room 405</div>
+                </div>
+                <div class="class-item lunch">
+                    <div class="class-time">12:15 - 1:00</div>
+                    <div>Lunch Break</div>
+                </div>
+                <div class="class-item study">
+                    <div class="class-time">1:00 - 2:15</div>
+                    <div>Study Time</div>
+                    <div>Library</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3>Legend:</h3>
+            <div class="legend-item">
+                <div class="color-box class-math"></div>
+                <span>Mathematics</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box class-science"></div>
+                <span>Science</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box class-english"></div>
+                <span>English</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box class-history"></div>
+                <span>History/Social Sciences</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box class-elective"></div>
+                <span>Electives</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box study"></div>
+                <span>Study Time</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box lunch"></div>
+                <span>Lunch</span>
+            </div>
+        </div>
+
+        <div class="notes">
+            <h3>Notes:</h3>
+            <ul>
+                <li>Chemistry Lab requires safety goggles</li>
+                <li>Calculus II has weekly homework due on Monday</li>
+                <li>Office hours: Professor Johnson (Math) - Mon/Wed 3-4pm, Room 310</li>
+                <li>Office hours: Professor Smith (English) - Tue/Thu 10-11am, Room 150</li>
+                <li>Library closes at 11pm on weekdays</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const viewToggle = document.getElementById('viewToggle');
+        const tableView = document.getElementById('tableView');
+        const cardView = document.getElementById('cardView');
+        
+        function checkWindowSize() {
+            if (window.innerWidth <= 480) {
+                // Switch to card view on small screens
+                tableView.classList.add('hidden');
+                cardView.classList.add('active');
+                viewToggle.textContent = 'Switch to Table View';
+            } else {
+                // Use table view on larger screens
+                tableView.classList.remove('hidden');
+                cardView.classList.remove('active');
+                viewToggle.textContent = 'Switch to Card View';
+            }
+        }
+        
+        // Check on page load
+        checkWindowSize();
+        
+        // Check when window is resized
+        window.addEventListener('resize', checkWindowSize);
+        
+        // Toggle button functionality
+        viewToggle.addEventListener('click', function() {
+            tableView.classList.toggle('hidden');
+            cardView.classList.toggle('active');
+            
+            if (cardView.classList.contains('active')) {
+                viewToggle.textContent = 'Switch to Table View';
+            } else {
+                viewToggle.textContent = 'Switch to Card View';
+            }
+        });
+    </script>
+</body>
+</html>
