@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/history-ar.css">
+
+    <title>History Explorer</title>
+
+</head>
+<body>
+    <!-- Circular Menu Button -->
+    <button class="menu-btn" id="menuBtn">☰</button>
+    
+    <!-- Side Navigation -->
+    <div class="side-nav" id="sideNav">
+        <ul>
+            <li><a href="#history">History</a></li>
+            <li><a href="#resume">Resumes</a></li>
+            <li><a href="pages/schedule.html">Schedule</a></li>
+            <li><a href="arabic.html">Arabic</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </div>
+    
+    <!-- Overlay when menu is open -->
+    <div class="overlay" id="overlay"></div>
+    
+    <header>
+        <div class="container">
+            <h1>Journey Through History</h1>
+            <p class="subtitle">Exploring fascinating moments from our past</p>
+        </div>
+        <nav>
+            <ul class="mainNav">
+                <li><a href="#history">History</a></li>
+                <li><a href="#resume">Resumes</a></li>
+                <li><a href="pages/schedule.html">Schedule</a></li>
+                <li><a href="arabic.html">Arabic</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="topic-selector">
+            <button class="topic-btn active" data-topic="ancient-rome">Ancient Rome</button>
+            <button class="topic-btn" data-topic="industrial-revolution">Industrial Revolution</button>
+            <button class="topic-btn" data-topic="space-race">The Space Race</button>
+        </div>
+        
+        <div id="ancient-rome" class="topic-content active">
+            <h2>Ancient Rome: The Rise of an Empire</h2>
+            <img src="/api/placeholder/800/300" alt="Ancient Rome Illustration">
+            <p>Ancient Rome was one of history's most powerful and influential civilizations, beginning as a small village in central Italy around the 8th century BCE and growing into a vast empire that at its peak encompassed most of continental Europe, Britain, parts of western Asia, northern Africa, and the Mediterranean islands.</p>
+            
+            <h3>The Roman Republic</h3>
+            <p>After overthrowing the monarchy in 509 BCE, Rome established a republic governed by elected officials and an intricate system of checks and balances. The Republic was characterized by its Senate, consuls, and assemblies, laying the groundwork for many modern democratic principles.</p>
+            
+            <h3>Rise of the Empire</h3>
+            <p>The transition from Republic to Empire began with Julius Caesar, but it was his adopted son Octavian (later known as Augustus) who became the first Roman Emperor in 27 BCE. The imperial period would last for nearly five centuries and see Rome reach its greatest territorial extent.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">753 BCE:</span> Traditional founding date of Rome by Romulus
+                </div>
+                <div class="timeline-item">
+                    <span class="year">509 BCE:</span> Establishment of the Roman Republic
+                </div>
+                <div class="timeline-item">
+                    <span class="year">264-146 BCE:</span> Punic Wars against Carthage
+                </div>
+                <div class="timeline-item">
+                    <span class="year">44 BCE:</span> Assassination of Julius Caesar
+                </div>
+                <div class="timeline-item">
+                    <span class="year">27 BCE:</span> Beginning of the Roman Empire under Augustus
+                </div>
+                <div class="timeline-item">
+                    <span class="year">117 CE:</span> Rome reaches its greatest territorial extent under Emperor Trajan
+                </div>
+                <div class="timeline-item">
+                    <span class="year">476 CE:</span> Fall of the Western Roman Empire
+                </div>
+            </div>
+            
+            <h3>Legacy</h3>
+            <p>Roman influence persists today in our language, legal systems, architecture, engineering, and political institutions. Latin, the language of Rome, forms the basis of Romance languages spoken by nearly a billion people worldwide. Roman architectural techniques, such as the arch and concrete, revolutionized construction. Their legal code became the foundation for many modern justice systems.</p>
+        </div>
+        
+        <div id="industrial-revolution" class="topic-content">
+            <h2>The Industrial Revolution: Transforming Society</h2>
+            <img src="/api/placeholder/800/300" alt="Industrial Revolution Illustration">
+            <p>The Industrial Revolution was a period of profound technological, socioeconomic, and cultural transformation that began in Great Britain in the mid-18th century and eventually spread throughout Europe, North America, and the world. It marked a major turning point in history, influencing nearly every aspect of daily life.</p>
+            
+            <h3>Technological Innovations</h3>
+            <p>At the heart of the Industrial Revolution were mechanical innovations that dramatically increased productivity. The development of the steam engine by James Watt in 1769 provided a new source of power that transformed manufacturing, transportation, and agriculture. The mechanization of the textile industry, symbolized by inventions like the spinning jenny and power loom, revolutionized production capabilities.</p>
+            
+            <h3>Social Impact</h3>
+            <p>The revolution drastically altered social structures. It accelerated urbanization as people migrated from rural areas to cities seeking factory work. New social classes emerged, including industrial capitalists and a large working class. Working conditions in early factories were often dangerous and exploitative, leading to the rise of labor movements and eventual reforms.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">1712:</span> Thomas Newcomen invents the first practical steam engine
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1764:</span> James Hargreaves invents the spinning jenny
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1769:</span> James Watt patents the improved steam engine
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1779:</span> First iron bridge is built in Shropshire, England
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1807:</span> Robert Fulton develops the first commercially successful steamboat
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1825:</span> First public railway opens in England
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1870s:</span> Beginning of the Second Industrial Revolution with electricity and mass production
+                </div>
+            </div>
+            
+            <h3>Global Impact</h3>
+            <p>The Industrial Revolution fundamentally changed global economics and politics. It accelerated European imperialism as industrialized nations sought raw materials and new markets. It created unprecedented wealth but also widened inequality. The environmental impact was significant, with increased pollution and resource consumption that continue to affect our world today.</p>
+        </div>
+        
+        <div id="space-race" class="topic-content">
+            <h2>The Space Race: Reaching for the Stars</h2>
+            <img src="/api/placeholder/800/300" alt="Space Race Illustration">
+            <p>The Space Race was a period of competition between the United States and the Soviet Union for supremacy in spaceflight capability during the Cold War. This rivalry drove unprecedented advances in rocketry, materials science, computing, and many other fields, ultimately leading to humanity's first steps beyond Earth.</p>
+            
+            <h3>Cold War Competition</h3>
+            <p>Following World War II, both superpowers recognized the military and political significance of space technology. When the Soviet Union launched Sputnik 1, the world's first artificial satellite, in October 1957, it shocked the American public and government, triggering an intensive effort to catch up and surpass Soviet space achievements.</p>
+            
+            <h3>Reaching for the Moon</h3>
+            <p>In 1961, Soviet cosmonaut Yuri Gagarin became the first human to orbit Earth. Weeks later, President John F. Kennedy committed the United States to landing a man on the Moon before the decade's end. This ambitious goal was achieved on July 20, 1969, when astronauts Neil Armstrong and Buzz Aldrin walked on the lunar surface while Michael Collins orbited above.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">October 4, 1957:</span> Soviet Union launches Sputnik 1, the first artificial satellite
+                </div>
+                <div class="timeline-item">
+                    <span class="year">April 12, 1961:</span> Yuri Gagarin becomes the first human in space
+                </div>
+                <div class="timeline-item">
+                    <span class="year">May 25, 1961:</span> President Kennedy announces the goal of landing on the Moon
+                </div>
+                <div class="timeline-item">
+                    <span class="year">February 20, 1962:</span> John Glenn becomes the first American to orbit Earth
+                </div>
+                <div class="timeline-item">
+                    <span class="year">July 20, 1969:</span> Apollo 11 lands on the Moon; Neil Armstrong and Buzz Aldrin walk on the lunar surface
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1975:</span> Apollo-Soyuz Test Project marks first international space cooperation
+                </div>
+                <div class="timeline-item">
+                    <span class="year">1981-1991:</span> Space Shuttle program revolutionizes reusable spacecraft
+                </div>
+            </div>
+            
+            <h3>Legacy</h3>
+            <p>The Space Race yielded tremendous technological benefits, from satellite communications to medical devices. It inspired generations of scientists and engineers. While initial competition dominated, later cooperation between former rivals led to projects like the International Space Station. Today, space exploration continues with multiple nations and private companies reaching for Mars and beyond, building on the foundation laid during this pivotal era.</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3 class="yellow">About CS331</h3>
+                <p class="white">This project was developed as part of the CS331 Web Programming course requirements. It demonstrates various web development skills including HTML5, CSS3, JavaScript, and responsive design.</p>
+            </div>
+            <div class="footer-section links">
+                <h3 class="yellow">Quick Links</h3>
+                <ul>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3 class="yellow">Contact</h3>
+                <p class="white"><i class="fa fa-envelope"></i> info@cs331project.com</p>
+                <p class="white"><i class="fa fa-phone"></i> +961 XX XXX XXX</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="white"><i>&copy; 2025 CS331 Web Project | All Rights Reserved</i></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Topic switching functionality
+            const topicButtons = document.querySelectorAll('.topic-btn');
+            const topicContents = document.querySelectorAll('.topic-content');
+            
+            topicButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const topic = this.dataset.topic;
+                    
+                    // Remove active class from all buttons and contents
+                    topicButtons.forEach(btn => btn.classList.remove('active'));
+                    topicContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to selected button and content
+                    this.classList.add('active');
+                    document.getElementById(topic).classList.add('active');
+                });
+            });
+            
+            // Side navigation functionality
+            const menuBtn = document.getElementById('menuBtn');
+            const sideNav = document.getElementById('sideNav');
+            const overlay = document.getElementById('overlay');
+            
+            // Toggle side navigation
+            menuBtn.addEventListener('click', function() {
+                sideNav.classList.toggle('active');
+                if (sideNav.classList.contains('active')) {
+                    overlay.style.display = 'block';
+                    menuBtn.innerHTML = '✕';
+                } else {
+                    overlay.style.display = 'none';
+                    menuBtn.innerHTML = '☰';
+                }
+            });
+            
+            // Close menu when clicking on overlay
+            overlay.addEventListener('click', function() {
+                sideNav.classList.remove('active');
+                overlay.style.display = 'none';
+                menuBtn.innerHTML = '☰';
+            });
+            
+            // Close menu when clicking on links (optional)
+            const navLinks = document.querySelectorAll('.side-nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    sideNav.classList.remove('active');
+                    overlay.style.display = 'none';
+                    menuBtn.innerHTML = '☰';
+                });
+            });
+            
+            // Close menu when window is resized to large screens
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    sideNav.classList.remove('active');
+                    overlay.style.display = 'none';
+                    menuBtn.innerHTML = '☰';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
