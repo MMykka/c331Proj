@@ -1,11 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/history-ar.css">
+    <link rel="stylesheet" href="../css/history.css">
+    <style>
+        /* RTL-specific overrides */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Arial Unicode MS';
+            text-align: right;
+        }
+        
+        .timeline-item::before {
+            right: -2rem;
+            left: auto;
+        }
+        
+        .timeline {
+            padding-right: 2rem;
+            padding-left: 0;
+        }
+        
+        .footer-section h3:after {
+            right: 0;
+            left: auto;
+        }
+        
+        .side-nav {
+            right: -300px;
+            left: auto;
+        }
+        
+        .side-nav.active {
+            right: 0;
+            left: auto;
+        }
+        
+        .menu-btn {
+            right: 20px;
+            left: auto;
+        }
+        
+        .side-nav ul li a:hover {
+            transform: translateX(-10px);
+        }
 
-    <title>History Explorer</title>
+        /* Mobile responsiveness for RTL */
+        @media (max-width: 480px) {
+            .side-nav {
+                width: 250px;
+                right: -250px;
+                left: auto;
+            }
+        }
+    </style>
+
+    <title>تاريخ الإنترنت</title>
 
 </head>
 <body>
@@ -15,13 +65,13 @@
     <!-- Side Navigation -->
     <div class="side-nav" id="sideNav">
         <ul>
-            <li><a href="#history">History</a></li>
-            <li><a href="#resume">Resumes</a></li>
-            <li><a href="pages/schedule.html">Schedule</a></li>
-            <li><a href="arabic.html">Arabic</a></li>
-            <li><a href="media.html">Media</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#resume">Resumes</a></li>
+            <li><a href="../index.html#schedule">Schedule</a></li>
+            <li><a href="../index.html#arabic">Arabic</a></li>
+            <li><a href="../index.html#media">Media</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="../index.html#quiz">Quiz</a></li>
         </ul>
     </div>
     
@@ -30,164 +80,155 @@
     
     <header>
         <div class="container">
-            <h1>Journey Through History</h1>
-            <p class="subtitle">Exploring fascinating moments from our past</p>
+            <h1>تاريخ الإنترنت</h1>
+            <p class="subtitle">استكشاف تطور الاتصال العالمي</p>
         </div>
         <nav>
             <ul class="mainNav">
-                <li><a href="#history">History</a></li>
-                <li><a href="#resume">Resumes</a></li>
-                <li><a href="pages/schedule.html">Schedule</a></li>
-                <li><a href="arabic.html">Arabic</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#resume">Resumes</a></li>
+                <li><a href="../index.html#schedule">Schedule</a></li>
+                <li><a href="../index.html#arabic">Arabic</a></li>
+                <li><a href="../index.html#media">Media</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../index.html#quiz">Quiz</a></li>
             </ul>
         </nav>
     </header>
     
     <div class="container">
         <div class="topic-selector">
-            <button class="topic-btn active" data-topic="ancient-rome">Ancient Rome</button>
-            <button class="topic-btn" data-topic="industrial-revolution">Industrial Revolution</button>
-            <button class="topic-btn" data-topic="space-race">The Space Race</button>
+            <button class="topic-btn active" data-topic="early-internet">الإنترنت المبكر</button>
+            <button class="topic-btn" data-topic="world-wide-web">الشبكة العنكبوتية العالمية</button>
+            <button class="topic-btn" data-topic="lebanon-internet">إحصائيات الإنترنت في لبنان</button>
         </div>
         
-        <div id="ancient-rome" class="topic-content active">
-            <h2>Ancient Rome: The Rise of an Empire</h2>
-            <img src="/api/placeholder/800/300" alt="Ancient Rome Illustration">
-            <p>Ancient Rome was one of history's most powerful and influential civilizations, beginning as a small village in central Italy around the 8th century BCE and growing into a vast empire that at its peak encompassed most of continental Europe, Britain, parts of western Asia, northern Africa, and the Mediterranean islands.</p>
+        <div id="early-internet" class="topic-content active">
+            <h2>الإنترنت: من آربانت إلى شبكة عالمية</h2>
+            <p>الإنترنت — الذي غالبًا ما يُطلق عليه "شبكة الشبكات" — أحدث ثورة في الاتصالات والتجارة والثقافة في جميع أنحاء العالم. ما بدأ كمشروع بحثي تابع لوزارة الدفاع الأمريكية في أواخر الستينيات تطور إلى نظام عالمي لامركزي يربط أكثر من نصف كوكب الأرض اليوم.</p>
             
-            <h3>The Roman Republic</h3>
-            <p>After overthrowing the monarchy in 509 BCE, Rome established a republic governed by elected officials and an intricate system of checks and balances. The Republic was characterized by its Senate, consuls, and assemblies, laying the groundwork for many modern democratic principles.</p>
+            <h3>الأسس النظرية (الستينيات)</h3>
+            <p>في أوائل الستينيات، اقترح باحثون مثل بول باران ودونالد ديفيز بشكل مستقل "تبديل الحزم"، وهو كسر الرسائل إلى أجزاء صغيرة يتم توجيهها بشكل مستقل عبر شبكة. أثرت هذه الأفكار بشكل مباشر على تصميم آربانت. في عام 1962، صاغ ج.س.ر. ليكليدر من معهد ماساتشوستس للتكنولوجيا رؤية لـ "شبكة كمبيوتر مجرية"، متنبئًا بالطبيعة التعاونية والموزعة للإنترنت اليوم.</p>
             
-            <h3>Rise of the Empire</h3>
-            <p>The transition from Republic to Empire began with Julius Caesar, but it was his adopted son Octavian (later known as Augustus) who became the first Roman Emperor in 27 BCE. The imperial period would last for nearly five centuries and see Rome reach its greatest territorial extent.</p>
+            <h3>آربانت: ولادة أول شبكة (1969-1990)</h3>
+            <p>بتمويل من داربا، تم تشغيل آربانت في أكتوبر 1969، وربط جامعة كاليفورنيا في لوس أنجلوس، ومعهد ستانفورد للأبحاث، وجامعة كاليفورنيا في سانتا باربرا، وجامعة يوتا عبر معالجات رسائل واجهة (IMPs). استخدمت عقد آربانت المبكرة بروتوكول التحكم بالشبكة (NCP)، لكن في يناير 1983 اعتمدت الشبكة بروتوكول التحكم بالإرسال/بروتوكول الإنترنت (TCP/IP)، مما أتاح ربط الشبكات المتنوعة في "إنترنت" حقيقي. بحلول عام 1990 تم إيقاف آربانت، وواصلت مهمتها شبكة NSFNET والشبكات الخاصة — مما مهد لعصر تجاري.</p>
             
             <div class="timeline">
                 <div class="timeline-item">
-                    <span class="year">753 BCE:</span> Traditional founding date of Rome by Romulus
+                    <span class="year">1962:</span> ج.س.ر. ليكليدر يقترح مفهوم "الشبكة المجرية"
                 </div>
                 <div class="timeline-item">
-                    <span class="year">509 BCE:</span> Establishment of the Roman Republic
+                    <span class="year">1969:</span> بدء تشغيل آربانت مع توصيل أول أربع عقد
                 </div>
                 <div class="timeline-item">
-                    <span class="year">264-146 BCE:</span> Punic Wars against Carthage
+                    <span class="year">1983:</span> اعتماد بروتوكول TCP/IP على آربانت
                 </div>
                 <div class="timeline-item">
-                    <span class="year">44 BCE:</span> Assassination of Julius Caesar
+                    <span class="year">1983-1986:</span> تطوير نظام أسماء النطاقات (DNS)
                 </div>
                 <div class="timeline-item">
-                    <span class="year">27 BCE:</span> Beginning of the Roman Empire under Augustus
-                </div>
-                <div class="timeline-item">
-                    <span class="year">117 CE:</span> Rome reaches its greatest territorial extent under Emperor Trajan
-                </div>
-                <div class="timeline-item">
-                    <span class="year">476 CE:</span> Fall of the Western Roman Empire
+                    <span class="year">1990:</span> إيقاف تشغيل آربانت
                 </div>
             </div>
             
-            <h3>Legacy</h3>
-            <p>Roman influence persists today in our language, legal systems, architecture, engineering, and political institutions. Latin, the language of Rome, forms the basis of Romance languages spoken by nearly a billion people worldwide. Roman architectural techniques, such as the arch and concrete, revolutionized construction. Their legal code became the foundation for many modern justice systems.</p>
+            <h3>تسمية الإنترنت: نظام أسماء النطاقات (1983-1986)</h3>
+            <p>مع تضاعف المضيفين، أصبح الحفاظ على ملف HOSTS.TXT مركزي غير قابل للاستمرار. اخترع الباحثون في معهد علوم المعلومات بجامعة جنوب كاليفورنيا نظام أسماء النطاقات في عام 1983 لتوزيع وأتمتة تخطيط الاسم إلى العنوان. نشرت فرقة عمل هندسة الإنترنت مواصفات DNS في RFC 882/883 (نوفمبر 1983) وقامت بتحديثها في RFC 1034/1035 (نوفمبر 1987). في عام 1984، أصدر طلاب جامعة كاليفورنيا في بيركلي أول تطبيق BIND، مما رسخ دور DNS كدليل للإنترنت.</p>
         </div>
         
-        <div id="industrial-revolution" class="topic-content">
-            <h2>The Industrial Revolution: Transforming Society</h2>
-            <img src="/api/placeholder/800/300" alt="Industrial Revolution Illustration">
-            <p>The Industrial Revolution was a period of profound technological, socioeconomic, and cultural transformation that began in Great Britain in the mid-18th century and eventually spread throughout Europe, North America, and the world. It marked a major turning point in history, influencing nearly every aspect of daily life.</p>
+        <div id="world-wide-web" class="topic-content">
+            <h2>الشبكة العنكبوتية العالمية وتطور المتصفحات</h2>
+            <p>بينما وفر الإنترنت البنية التحتية للاتصال العالمي، كان اختراع الشبكة العنكبوتية العالمية هو الذي حول الإنترنت إلى النظام سهل الاستخدام الذي نعرفه اليوم. جعلت الويب المعلومات في متناول المستخدمين غير التقنيين وحفزت التوسع السريع للإنترنت.</p>
             
-            <h3>Technological Innovations</h3>
-            <p>At the heart of the Industrial Revolution were mechanical innovations that dramatically increased productivity. The development of the steam engine by James Watt in 1769 provided a new source of power that transformed manufacturing, transportation, and agriculture. The mechanization of the textile industry, symbolized by inventions like the spinning jenny and power loom, revolutionized production capabilities.</p>
+            <h3>الشبكة العنكبوتية العالمية (1989-1991)</h3>
+            <p>في مارس 1989، اقترح تيم بيرنرز-لي في سيرن نظام نص تشعبي لإدارة المعلومات العلمية. بحلول ديسمبر 1990، كان قد نفذ أول خادم ويب ومتصفح، وبدأ الوصول العام في أغسطس 1991. استخدم هذا النظام الثوري HTTP وHTML وعناوين URL لإنشاء شبكة مترابطة من المستندات يمكن التنقل فيها بسهولة.</p>
             
-            <h3>Social Impact</h3>
-            <p>The revolution drastically altered social structures. It accelerated urbanization as people migrated from rural areas to cities seeking factory work. New social classes emerged, including industrial capitalists and a large working class. Working conditions in early factories were often dangerous and exploitative, leading to the rise of labor movements and eventual reforms.</p>
+            <h3>من النص إلى الرسومات: موزاييك وحروب المتصفحات (1993-1998)</h3>
+            <p>تم إصدار موزاييك NCSA في 22 أبريل 1993، وكان أول متصفح يجمع بين النص والصور المضمنة، مما جعل الويب جذابة بصريًا للمستخدمين غير التقنيين. استفاد مارك أندريسن من كود موزاييك لتأسيس نيتسكيب، الذي هيمن متصفحه نافيغاتور حتى استحوذ إنترنت إكسبلورر من مايكروسوفت على جزء كبير من السوق في أواخر التسعينيات.</p>
             
             <div class="timeline">
                 <div class="timeline-item">
-                    <span class="year">1712:</span> Thomas Newcomen invents the first practical steam engine
+                    <span class="year">1989:</span> تيم بيرنرز-لي يقترح الشبكة العنكبوتية العالمية في سيرن
                 </div>
                 <div class="timeline-item">
-                    <span class="year">1764:</span> James Hargreaves invents the spinning jenny
+                    <span class="year">1990:</span> تنفيذ أول خادم ويب ومتصفح
                 </div>
                 <div class="timeline-item">
-                    <span class="year">1769:</span> James Watt patents the improved steam engine
+                    <span class="year">1991:</span> الشبكة العنكبوتية العالمية تصبح متاحة للجمهور
                 </div>
                 <div class="timeline-item">
-                    <span class="year">1779:</span> First iron bridge is built in Shropshire, England
+                    <span class="year">1993:</span> إصدار متصفح موزاييك NCSA
                 </div>
                 <div class="timeline-item">
-                    <span class="year">1807:</span> Robert Fulton develops the first commercially successful steamboat
+                    <span class="year">1994:</span> إصدار نيتسكيب نافيغاتور
                 </div>
                 <div class="timeline-item">
-                    <span class="year">1825:</span> First public railway opens in England
+                    <span class="year">1995:</span> رفع قيود NSFNET، بدء التجارية
                 </div>
                 <div class="timeline-item">
-                    <span class="year">1870s:</span> Beginning of the Second Industrial Revolution with electricity and mass production
+                    <span class="year">1998:</span> تأسيس جوجل
                 </div>
             </div>
             
-            <h3>Global Impact</h3>
-            <p>The Industrial Revolution fundamentally changed global economics and politics. It accelerated European imperialism as industrialized nations sought raw materials and new markets. It created unprecedented wealth but also widened inequality. The environmental impact was significant, with increased pollution and resource consumption that continue to affect our world today.</p>
+            <h3>التجارية والتوسع العالمي (منتصف التسعينيات)</h3>
+            <p>بعد أن رفعت NSFNET قيود الاستخدام المقبول في عام 1995، انتشرت مزودات خدمة الإنترنت التجارية؛ وتسابقت الشركات والإعلام والأفراد للاتصال بالإنترنت. بحلول نهاية العقد، كانت التجارة الإلكترونية ومحركات البحث ووسائل التواصل الاجتماعي تغير الحياة اليومية. شهدت الألفية الجديدة صعود النطاق العريض والواي فاي وشبكات الجوال، مما أتاح الاتصال المستمر. اليوم، تشكل أجهزة إنترنت الأشياء وخدمات البث وسحابة الحوسبة تطور الإنترنت المستمر.</p>
         </div>
         
-        <div id="space-race" class="topic-content">
-            <h2>The Space Race: Reaching for the Stars</h2>
-            <img src="/api/placeholder/800/300" alt="Space Race Illustration">
-            <p>The Space Race was a period of competition between the United States and the Soviet Union for supremacy in spaceflight capability during the Cold War. This rivalry drove unprecedented advances in rocketry, materials science, computing, and many other fields, ultimately leading to humanity's first steps beyond Earth.</p>
+        <div id="lebanon-internet" class="topic-content">
+            <h2>الإنترنت في لبنان: الإحصائيات والتطوير</h2>
+            <p>واجه تطوير البنية التحتية للإنترنت في لبنان تحديات وفرص فريدة. يستكشف هذا القسم نمو وحالة وآفاق مستقبل الاتصال بالإنترنت في البلاد.</p>
             
-            <h3>Cold War Competition</h3>
-            <p>Following World War II, both superpowers recognized the military and political significance of space technology. When the Soviet Union launched Sputnik 1, the world's first artificial satellite, in October 1957, it shocked the American public and government, triggering an intensive effort to catch up and surpass Soviet space achievements.</p>
+            <h3>انتشار الإنترنت والوصول إليه</h3>
+            <p>شهد لبنان نموًا كبيرًا في اعتماد الإنترنت على مدار العقد الماضي. اعتبارًا من عام 2025، يتمتع حوالي 78٪ من سكان لبنان بإمكانية الوصول إلى الإنترنت، على الرغم من أن هذا الوصول يختلف بشكل كبير بين المناطق الحضرية والريفية. تتمتع بيروت والمدن الرئيسية الأخرى باتصالات مستقرة نسبيًا، بينما لا تزال المناطق الجبلية والمناطق النائية تواجه تحديات في الاتصال.</p>
             
-            <h3>Reaching for the Moon</h3>
-            <p>In 1961, Soviet cosmonaut Yuri Gagarin became the first human to orbit Earth. Weeks later, President John F. Kennedy committed the United States to landing a man on the Moon before the decade's end. This ambitious goal was achieved on July 20, 1969, when astronauts Neil Armstrong and Buzz Aldrin walked on the lunar surface while Michael Collins orbited above.</p>
+            <h3>تطوير البنية التحتية</h3>
+            <p>خضعت البنية التحتية للإنترنت في لبنان للعديد من الترقيات الرئيسية في السنوات الأخيرة. تعتمد البلاد بشكل أساسي على الكابلات البحرية للاتصال الدولي، حيث تعتبر كابلات IMEWE (الهند-الشرق الأوسط-أوروبا الغربية) وكادموس قنوات رئيسية. حسنت عمليات نشر الألياف البصرية الحديثة عرض النطاق الترددي المحلي، على الرغم من أن النشر كان غير متكافئ عبر المناطق.</p>
             
             <div class="timeline">
                 <div class="timeline-item">
-                    <span class="year">October 4, 1957:</span> Soviet Union launches Sputnik 1, the first artificial satellite
+                    <span class="year">1995:</span> تأسيس أول مزود خدمة إنترنت تجاري في لبنان
                 </div>
                 <div class="timeline-item">
-                    <span class="year">April 12, 1961:</span> Yuri Gagarin becomes the first human in space
+                    <span class="year">2008:</span> إطلاق خدمات الإنترنت المحمول 3G
                 </div>
                 <div class="timeline-item">
-                    <span class="year">May 25, 1961:</span> President Kennedy announces the goal of landing on the Moon
+                    <span class="year">2013:</span> بدء نشر خدمات 4G في المدن الرئيسية
                 </div>
                 <div class="timeline-item">
-                    <span class="year">February 20, 1962:</span> John Glenn becomes the first American to orbit Earth
+                    <span class="year">2018:</span> بدء مشروع توسيع العمود الفقري للألياف البصرية الرئيسي
                 </div>
                 <div class="timeline-item">
-                    <span class="year">July 20, 1969:</span> Apollo 11 lands on the Moon; Neil Armstrong and Buzz Aldrin walk on the lunar surface
+                    <span class="year">2022:</span> بدء اختبار 5G في مناطق حضرية مختارة
                 </div>
                 <div class="timeline-item">
-                    <span class="year">1975:</span> Apollo-Soyuz Test Project marks first international space cooperation
-                </div>
-                <div class="timeline-item">
-                    <span class="year">1981-1991:</span> Space Shuttle program revolutionizes reusable spacecraft
+                    <span class="year">2024:</span> تنفيذ استراتيجية التحول الرقمي الوطنية
                 </div>
             </div>
             
-            <h3>Legacy</h3>
-            <p>The Space Race yielded tremendous technological benefits, from satellite communications to medical devices. It inspired generations of scientists and engineers. While initial competition dominated, later cooperation between former rivals led to projects like the International Space Station. Today, space exploration continues with multiple nations and private companies reaching for Mars and beyond, building on the foundation laid during this pivotal era.</p>
+            <h3>الإحصائيات الحالية (2025)</h3>
+            <p>وفقًا للبيانات الحديثة، يبلغ متوسط سرعة النطاق العريض الثابت في لبنان حوالي 45 ميجابت في الثانية، بينما يبلغ متوسط اتصالات الجوال حوالي 30 ميجابت في الثانية. وصل انتشار الهواتف الذكية إلى 85٪ من السكان البالغين، مما يجعل الجوال وسيلة الوصول الرئيسية للإنترنت للعديد من المواطنين اللبنانيين. يعد اعتماد وسائل التواصل الاجتماعي مرتفعًا بشكل خاص، حيث يحتفظ أكثر من 70٪ من السكان بحسابات نشطة على منصات مختلفة. شهدت التجارة الإلكترونية نموًا سريعًا، تسارعت بسبب الأحداث العالمية وتغير سلوكيات المستهلكين، بمعدل نمو سنوي يبلغ حوالي 15٪ في المعاملات عبر الإنترنت.</p>
+            
+            <h3>التحديات والنظرة المستقبلية</h3>
+            <p>على الرغم من التقدم، يواجه لبنان تحديات مستمرة في تطوير الإنترنت، بما في ذلك عدم استقرار إمدادات الطاقة، والعقبات التنظيمية، والعوامل الاقتصادية التي تؤثر على الاستثمار في البنية التحتية. وبالنظر إلى المستقبل، من المتوقع أن تعمل المبادرات التي تركز على توسيع الاتصال الريفي، وزيادة المنافسة بين مقدمي الخدمات، وتنفيذ تقنيات المدن الذكية على تحويل المشهد الرقمي في لبنان في السنوات القادمة.</p>
         </div>
     </div>
     
     <footer>
         <div class="footer-content">
             <div class="footer-section about">
-                <h3 class="yellow">About CS331</h3>
-                <p class="white">This project was developed as part of the CS331 Web Programming course requirements. It demonstrates various web development skills including HTML5, CSS3, JavaScript, and responsive design.</p>
+                <h3 class="yellow">حول CS331</h3>
+                <p class="white">تم تطوير هذا المشروع كجزء من متطلبات مادة برمجة الويب CS331. يوضح مهارات تطوير الويب المختلفة بما في ذلك HTML5 وCSS3 وJavaScript والتصميم المتجاوب.</p>
             </div>
             <div class="footer-section links">
-                <h3 class="yellow">Quick Links</h3>
+                <h3 class="yellow">روابط سريعة</h3>
                 <ul>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="schedule.html">Schedule</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="history.html">التاريخ</a></li>
+                    <li><a href="resume.html">السيرة الذاتية</a></li>
+                    <li><a href="schedule.html">الجدول</a></li>
+                    <li><a href="contact.html">الاتصال</a></li>
                 </ul>
             </div>
             <div class="footer-section contact">
-                <h3 class="yellow">Contact</h3>
+                <h3 class="yellow">الاتصال</h3>
                 <p class="white"><i class="fa fa-envelope"></i> info@cs331project.com</p>
                 <p class="white"><i class="fa fa-phone"></i> +961 XX XXX XXX</p>
                 <div class="social-icons">
@@ -198,7 +239,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="white"><i>&copy; 2025 CS331 Web Project | All Rights Reserved</i></p>
+            <p class="white"><i>حقوق النشر &copy; 2025 مشروع CS331 للويب | جميع الحقوق محفوظة</i></p>
         </div>
     </footer>
 
@@ -268,5 +309,4 @@
     </script>
 </body>
 </html>
-
 

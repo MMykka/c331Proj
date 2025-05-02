@@ -1,4 +1,50 @@
 <!DOCTYPE html>
+<?php
+// Enable error reporting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Database connection
+$con = new mysqli('sql105.infinityfree.com', 'if0_38852725', 'fyBdUVxewt', 'if0_38852725_contactdatab');
+
+// Check connection
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
+
+// Initialize message variables
+$success = '';
+$error = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and collect form inputs
+    $name = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
+    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+
+    // Validate required fields
+    if (!empty($name) && !empty($email) && !empty($message)) {
+        // Prepare insert
+        $stmt = $con->prepare("INSERT INTO contacttab (name, email, phone, message) VALUES (?, ?, ?, ?)");
+        if ($stmt) {
+            $stmt->bind_param("ssss", $name, $email, $phone, $message);
+            if ($stmt->execute()) {
+                $success = "Your message has been sent successfully!";
+            } else {
+                $error = "Database insert failed: " . $stmt->error;
+            }
+            $stmt->close();
+        } else {
+            $error = "Prepare failed: " . $con->error;
+        }
+    } else {
+        $error = "Please fill in all required fields (Name, Email, Message).";
+    }
+}
+?>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -208,7 +254,7 @@
             <h2>Send Us a <span class="highlight">Message</span></h2>
             <div class="section-divider"></div>
             
-            <form id="contactForm" action="contactaction.php" method="POST">
+            <form id="contactForm" action="contact.php" method="POST">
                 <div class="form-group">
                     <label for="name">Full Name*</label>
                     <input type="text" id="name" name="name" placeholder="Enter your full name">
@@ -235,106 +281,183 @@
                 
                 <button type="submit">SUBMIT MESSAGE</button>
             </form>
+            <?php if (!empty($success)): ?>
+                <div class="server-message"><?php echo $success; ?></div>
+            <?php endif; ?>
+
+            <?php if (!empty($error)): ?>
+                <div class="server-message server-error"><?php echo $error; ?></div>
+            <?php endif; ?>
+
+
         </div>
     </div>
-    
+
+
+    <!-- if0_38852725_contactdatab	if0_38852725	fyBdUVxewt	sql105.infinityfree.com -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contactForm');
+       document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', function(e) {
+        // Client-side validation before sending to server
+        
+        // Reset all error states
+        resetErrors();
+        
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Validation flag
+        let isValid = true;
+        
+        // Validate name (required)
+        if (name === '') {
+            showError('name', 'nameError', 'Please enter your full name');
+            isValid = false;
+        } else if (name.length < 2) {
+            showError('name', 'nameError', 'Name must be at least 2 characters');
+            isValid = false;
+        }
+        
+        // Validate email (required)
+        if (email === '') {
+            showError('email', 'emailError', 'Please enter your email address');
+            isValid = false;
+        } else if (!isValidEmail(email)) {
+            showError('email', 'emailError', 'Please enter a valid email address');
+            isValid = false;
+        }
+        
+        // Validate phone (optional but must be valid if provided)
+        if (phone !== '' && !isValidPhone(phone)) {
+            showError('phone', 'phoneError', 'Please enter a valid phone number');
+            isValid = false;
+        }
+        
+        // Validate message (required)
+        if (message === '') {
+            showError('message', 'messageError', 'Please enter your message');
+            isValid = false;
+        } else if (message.length < 10) {
+            showError('message', 'messageError', 'Your message must be at least 10 characters');
+            isValid = false;
+        }
+        
+        // If the form is not valid, prevent submission
+        if (!isValid) {
+            e.preventDefault();
+        }
+    });
+    
+    // Helper functions
+    function showError(inputId, errorId, errorMessage) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        const label = document.querySelector(`label[for="${inputId}"]`);
+        
+        // Add error class to input
+        input.classList.add('input-error');
+        
+        // Set error message and display it
+        error.textContent = errorMessage;
+        error.style.display = 'block';
+        
+        // Make label red
+        if (label) {
+            label.style.color = '#ff6b6b';
+        }
+    }
+    
+    function resetErrors() {
+        // Remove all error classes from inputs
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => input.classList.remove('input-error'));
+        
+        // Hide all error messages
+        const errors = document.querySelectorAll('.error');
+        errors.forEach(error => error.style.display = 'none');
+        
+        // Reset all label colors
+        const labels = document.querySelectorAll('label');
+        labels.forEach(label => label.style.color = 'white');
+    }
+    
+    function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+    
+    function isValidPhone(phone) {
+        // Simple validation for demonstration
+        // Accepts formats like: (123) 456-7890, 123-456-7890, 1234567890
+        const re = /^[\d\+\-\(\) ]{7,20}$/;
+        return re.test(phone);
+    }
+    
+    // Add real-time validation on blur (when user leaves a field)
+    const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            // Clear previous error for this field
+            resetErrorForField(this.id);
             
-            contactForm.addEventListener('submit', function(e) {
-                // Client-side validation before sending to server
-                
-                // Reset all error states
-                resetErrors();
-                
-                // Get form values
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value.trim();
-                
-                // Validation flag
-                let isValid = true;
-                
-                // Validate name (required)
-                if (name === '') {
-                    showError('name', 'nameError', 'Please enter your full name');
-                    isValid = false;
-                } else if (name.length < 2) {
-                    showError('name', 'nameError', 'Name must be at least 2 characters');
-                    isValid = false;
-                }
-                
-                // Validate email (required)
-                if (email === '') {
-                    showError('email', 'emailError', 'Please enter your email address');
-                    isValid = false;
-                } else if (!isValidEmail(email)) {
-                    showError('email', 'emailError', 'Please enter a valid email address');
-                    isValid = false;
-                }
-                
-                // Validate phone (optional but must be valid if provided)
-                if (phone !== '' && !isValidPhone(phone)) {
-                    showError('phone', 'phoneError', 'Please enter a valid phone number');
-                    isValid = false;
-                }
-                
-                // Validate subject (required)
-                if (subject === '') {
-                    showError('subject', 'subjectError', 'Please select a subject');
-                    isValid = false;
-                }
-                
-                // Validate message (required)
-                if (message === '') {
-                    showError('message', 'messageError', 'Please enter your message');
-                    isValid = false;
-                } else if (message.length < 10) {
-                    showError('message', 'messageError', 'Your message must be at least 10 characters');
-                    isValid = false;
-                }
-                
-                // If the form is not valid, prevent submission
-                if (!isValid) {
-                    e.preventDefault();
-                }
-            });
-            
-            // Helper functions
-            function showError(inputId, errorId, errorMessage) {
-                const input = document.getElementById(inputId);
-                const error = document.getElementById(errorId);
-                
-                input.classList.add('input-error');
-                error.textContent = errorMessage;
-                error.style.display = 'block';
-            }
-            
-            function resetErrors() {
-                // Remove all error classes
-                const inputs = document.querySelectorAll('input, select, textarea');
-                inputs.forEach(input => input.classList.remove('input-error'));
-                
-                // Hide all error messages
-                const errors = document.querySelectorAll('.error');
-                errors.forEach(error => error.style.display = 'none');
-            }
-            
-            function isValidEmail(email) {
-                const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(email);
-            }
-            
-            function isValidPhone(phone) {
-                // Simple validation for demonstration
-                // Accepts formats like: (123) 456-7890, 123-456-7890, 1234567890
-                const re = /^[\d\+\-\(\) ]{7,20}$/;
-                return re.test(phone);
-            }
+            // Validate the field
+            validateField(this.id);
         });
+    });
+    
+    function resetErrorForField(fieldId) {
+        const input = document.getElementById(fieldId);
+        const errorId = fieldId + 'Error';
+        const error = document.getElementById(errorId);
+        const label = document.querySelector(`label[for="${fieldId}"]`);
+        
+        if (input) input.classList.remove('input-error');
+        if (error) error.style.display = 'none';
+        if (label) label.style.color = 'white';
+    }
+    
+    function validateField(fieldId) {
+        const field = document.getElementById(fieldId);
+        const value = field.value.trim();
+        
+        switch(fieldId) {
+            case 'name':
+                if (value === '') {
+                    showError('name', 'nameError', 'Please enter your full name');
+                } else if (value.length < 2) {
+                    showError('name', 'nameError', 'Name must be at least 2 characters');
+                }
+                break;
+                
+            case 'email':
+                if (value === '') {
+                    showError('email', 'emailError', 'Please enter your email address');
+                } else if (!isValidEmail(value)) {
+                    showError('email', 'emailError', 'Please enter a valid email address');
+                }
+                break;
+                
+            case 'phone':
+                if (value !== '' && !isValidPhone(value)) {
+                    showError('phone', 'phoneError', 'Please enter a valid phone number');
+                }
+                break;
+                
+            case 'message':
+                if (value === '') {
+                    showError('message', 'messageError', 'Please enter your message');
+                } else if (value.length < 10) {
+                    showError('message', 'messageError', 'Your message must be at least 10 characters');
+                }
+                break;
+        }
+    }
+});
     </script>
 </body>
 </html>

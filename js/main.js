@@ -50,3 +50,67 @@ document.addEventListener('DOMContentLoaded', function() {
     // This is just a placeholder in case you want to add any initialization code
     console.log('Slider initialized');
 });
+
+
+       document.addEventListener('DOMContentLoaded', function() {
+            // Topic switching functionality
+            const topicButtons = document.querySelectorAll('.topic-btn');
+            const topicContents = document.querySelectorAll('.topic-content');
+            
+            topicButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const topic = this.dataset.topic;
+                    
+                    // Remove active class from all buttons and contents
+                    topicButtons.forEach(btn => btn.classList.remove('active'));
+                    topicContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to selected button and content
+                    this.classList.add('active');
+                    document.getElementById(topic).classList.add('active');
+                });
+            });
+            
+            // Side navigation functionality
+            const menuBtn = document.getElementById('menuBtn');
+            const sideNav = document.getElementById('sideNav');
+            const overlay = document.getElementById('overlay');
+            
+            // Toggle side navigation
+            menuBtn.addEventListener('click', function() {
+                sideNav.classList.toggle('active');
+                if (sideNav.classList.contains('active')) {
+                    overlay.style.display = 'block';
+                    menuBtn.innerHTML = '✕';
+                } else {
+                    overlay.style.display = 'none';
+                    menuBtn.innerHTML = '☰';
+                }
+            });
+            
+            // Close menu when clicking on overlay
+            overlay.addEventListener('click', function() {
+                sideNav.classList.remove('active');
+                overlay.style.display = 'none';
+                menuBtn.innerHTML = '☰';
+            });
+            
+            // Close menu when clicking on links (optional)
+            const navLinks = document.querySelectorAll('.side-nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    sideNav.classList.remove('active');
+                    overlay.style.display = 'none';
+                    menuBtn.innerHTML = '☰';
+                });
+            });
+            
+            // Close menu when window is resized to large screens
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    sideNav.classList.remove('active');
+                    overlay.style.display = 'none';
+                    menuBtn.innerHTML = '☰';
+                }
+            });
+        });
