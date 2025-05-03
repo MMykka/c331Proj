@@ -2,6 +2,9 @@
 // Start the session to store quiz data
 session_start();
 
+// Include the configuration file
+include_once 'config.php';
+
 // Quiz questions and answers
 $quizData = [
     [
@@ -65,99 +68,12 @@ $_SESSION['quiz_data'] = $quizData;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Quiz</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f8fa;
-            padding: 20px;
-        }
-        
-        .quiz-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-        
-        .question-container {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .question {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #34495e;
-            font-weight: bold;
-        }
-        
-        .option {
-            margin-bottom: 10px;
-        }
-        
-        .option label {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: #f1f5f9;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .option label:hover {
-            background-color: #e3e8ed;
-        }
-        
-        .option input[type="radio"] {
-            margin-right: 10px;
-        }
-        
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #2980b9;
-        }
-        
-        @media (max-width: 600px) {
-            .quiz-container {
-                padding: 20px;
-            }
-        }
-    </style>
+    <title><?php echo $appName; ?></title>
+    <link rel="stylesheet" href="quizphp.css">
 </head>
 <body>
     <div class="quiz-container">
-        <h1>Knowledge Quiz Challenge</h1>
+        <h1><?php echo $appName; ?></h1>
         
         <form action="process.php" method="post">
             <?php foreach ($quizData as $index => $question): ?>

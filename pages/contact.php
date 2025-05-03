@@ -4,6 +4,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Start session to store form data
+session_start();
+
 // Database connection
 $con = new mysqli('sql105.infinityfree.com', 'if0_38852725', 'fyBdUVxewt', 'if0_38852725_contactdatab');
 
@@ -30,7 +33,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt) {
             $stmt->bind_param("ssss", $name, $email, $phone, $message);
             if ($stmt->execute()) {
-                $success = "Your message has been sent successfully!";
+                // Store form data in session
+                $_SESSION['form_data'] = [
+                    'name' => $name,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'message' => $message
+                ];
+                
+                // Redirect to thank you page
+                header("Location: thankyou.php");
+                exit;
             } else {
                 $error = "Database insert failed: " . $stmt->error;
             }
@@ -281,20 +294,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 <button type="submit">SUBMIT MESSAGE</button>
             </form>
-            <?php if (!empty($success)): ?>
-                <div class="server-message"><?php echo $success; ?></div>
-            <?php endif; ?>
-
             <?php if (!empty($error)): ?>
                 <div class="server-message server-error"><?php echo $error; ?></div>
             <?php endif; ?>
-
-
         </div>
     </div>
 
-
-    <!-- if0_38852725_contactdatab	if0_38852725	fyBdUVxewt	sql105.infinityfree.com -->
     <script>
        document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');

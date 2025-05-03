@@ -10,7 +10,16 @@ if (!isset($_SESSION['quiz_results'])) {
 }
 
 // Get results from session
-$results = $_SESSION['quiz_results'];
+$results = $_SESSION['quiz_results']; // Fixed line: Now correctly retrieves quiz results
+
+// Get database save status if available
+$dbSaveStatus = $_SESSION['db_save_status'] ?? null;
+$dbErrorMessage = $_SESSION['db_error_message'] ?? '';
+
+// Clear sensitive error messages after reading
+if (isset($_SESSION['db_error_message'])) {
+    unset($_SESSION['db_error_message']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,12 +35,12 @@ $results = $_SESSION['quiz_results'];
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #f5f8fa;
             padding: 20px;
         }
-        
+
         .results-container {
             max-width: 800px;
             margin: 0 auto;
@@ -40,75 +49,92 @@ $results = $_SESSION['quiz_results'];
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             padding: 30px;
         }
-        
+
         h1 {
             text-align: center;
             color: #2c3e50;
             margin-bottom: 30px;
         }
-        
+
         .summary {
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
-        
+
         .score {
             font-size: 24px;
             font-weight: bold;
             color: #3498db;
             margin-bottom: 10px;
         }
-        
+
         .message {
             font-size: 18px;
             color: #7f8c8d;
             margin-bottom: 20px;
         }
-        
+
+        .db-status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .db-status.success {
+            background-color: #e6f7ed;
+            color: #27ae60;
+        }
+
+        .db-status.error {
+            background-color: #fdedec;
+            color: #e74c3c;
+        }
+
         .details {
             margin-bottom: 30px;
         }
-        
+
         .result-item {
             margin-bottom: 20px;
             padding: 15px;
             border-radius: 8px;
         }
-        
+
         .result-item.correct {
             background-color: #e6f7ed;
             border-left: 5px solid #27ae60;
         }
-        
+
         .result-item.incorrect {
             background-color: #fdedec;
             border-left: 5px solid #e74c3c;
         }
-        
+
         .result-question {
             font-weight: bold;
             margin-bottom: 10px;
             color: #34495e;
         }
-        
+
         .result-answer {
             margin-bottom: 5px;
         }
-        
+
         .result-answer.user {
             font-weight: bold;
         }
-        
+
         .result-answer.correct {
             color: #27ae60;
         }
-        
+
         .result-answer.incorrect {
             color: #e74c3c;
         }
-        
+
         .btn {
             display: block;
             width: 100%;
@@ -124,7 +150,7 @@ $results = $_SESSION['quiz_results'];
             text-decoration: none;
             transition: background-color 0.2s;
         }
-        
+
         .btn:hover {
             background-color: #2980b9;
         }
@@ -133,7 +159,7 @@ $results = $_SESSION['quiz_results'];
 <body>
     <div class="results-container">
         <h1>Quiz Results</h1>
-        
+
         <div class="summary">
             <div class="score">
                 Your Score: <?php echo $results['score']; ?>/<?php echo $results['totalQuestions']; ?> (<?php echo round($results['percentage']); ?>%)
@@ -141,17 +167,30 @@ $results = $_SESSION['quiz_results'];
             <div class="message">
                 <?php echo htmlspecialchars($results['resultMessage']); ?>
             </div>
+
+            <?php if ($dbSaveStatus === 'success'): ?>
+            <div class="db-status success">
+                Your answers have been successfully saved to the database.
+            </div>
+            <?php elseif ($dbSaveStatus === 'error'): ?>
+            <div class="db-status error">
+                There was an error saving your answers to the database.
+                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
+                <br>Error: <?php echo htmlspecialchars($dbErrorMessage); ?>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
         </div>
-        
+
         <div class="details">
             <h2>Detailed Results:</h2>
-            
+
             <?php foreach ($results['details'] as $index => $item): ?>
                 <div class="result-item <?php echo $item['isCorrect'] ? 'correct' : 'incorrect'; ?>">
                     <div class="result-question">
                         <?php echo ($index + 1) . '. ' . htmlspecialchars($item['question']); ?>
                     </div>
-                    
+
                     <div class="result-answer user <?php echo $item['isCorrect'] ? 'correct' : 'incorrect'; ?>">
                         Your answer: <?php echo htmlspecialchars($item['userAnswer']); ?>
                         <?php if ($item['isCorrect']): ?>
@@ -160,7 +199,7 @@ $results = $_SESSION['quiz_results'];
                             ✗
                         <?php endif; ?>
                     </div>
-                    
+
                     <?php if (!$item['isCorrect']): ?>
                         <div class="result-answer correct">
                             Correct answer: <?php echo htmlspecialchars($item['correctAnswer']); ?>
@@ -169,7 +208,7 @@ $results = $_SESSION['quiz_results'];
                 </div>
             <?php endforeach; ?>
         </div>
-        
+
         <a href="index.php" class="btn">Try Again</a>
     </div>
 </body>

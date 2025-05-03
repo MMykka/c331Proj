@@ -379,6 +379,7 @@ body {
     width: 50%;
 }
 
+
 .histone .hpart1, .histone-2 .hpart1-2 {
     position: relative;
     padding-bottom: 50px;
@@ -471,7 +472,6 @@ body {
 }
 
 .resume-tab1, .resume-tab2 {
-    background-color: #f8b411;
     border-radius: 50px;
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -490,6 +490,12 @@ body {
 
 .resume-tab1:hover, .resume-tab2:hover {
     transform: scale(1.05);
+}
+
+.resumetabimgs {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
 }
 
 /* ==========================================================================
@@ -515,6 +521,12 @@ body {
     width: 600px;
     height: 800px;
     background-color: #f8b411;
+    border-radius: 50px;
+}
+
+.section-three-imgg {
+    width: 100%;
+    height: 100%;
     border-radius: 50px;
 }
 
@@ -665,6 +677,22 @@ footer {
    RESPONSIVE DESIGN
    ========================================================================== */
 
+   @media (max-width: 1700px) {
+    .sectionthree {
+        padding: 10px;
+    }
+   }
+
+   @media (max-width: 1450px) {
+    .section-three-img {
+        width: 450px;
+        height: 550px;
+
+    }
+    .sectionthree-p1 h2, .sectionthree-p1-2 h2 {
+        font-size: 80px;
+    }
+}
 /* Large devices (desktops, less than 1200px) */
 @media (max-width: 1200px) {
     .sectionthree-p1 h2,
@@ -674,12 +702,42 @@ footer {
     }
     
     .section-three-img {
-        width: 500px;
+        width: 700px;
         height: 650px;
     }
     
     .titles {
         font-size: 80px;
+    }
+
+    .sectionfour {
+        flex-direction: column;
+        gap: 70px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .historydiv, .historydiv-2 {
+        max-width: 100%;
+        flex-direction: column;
+    }
+
+    .histone, .histone-2 {
+        flex-direction: column;
+    }
+    .histone .hpart1, .histone-2 .hpart1-2, .histone .hpart2, .histone-2 .hpart2-2 {
+        padding: 30px;
+        width: 100%;
+    }
+
+    .resume-tab1 {
+        width: 100%;
+        max-width: 650px;
+    }
+    
+    .resume-tab2 {
+        width: 100%;
+        max-width: 650px;
     }
 }
 
@@ -733,12 +791,17 @@ footer {
     .section-header h2 {
         font-size: 60px;
     }
+
+
 }
 
 /* Small devices (landscape phones, less than 768px) */
 @media (max-width: 768px) {
     .histone, .histone-2 {
         flex-direction: column;
+    }
+    .sectionthree-p2 {
+        width: 100%;
     }
     
     .histone .hpart1, .histone .hpart2,
@@ -752,6 +815,10 @@ footer {
         padding-top: 50px;
         margin-top: 30px;
     }
+
+    .histone, .histone-2 {
+        padding: 10px;
+    }
     
     .footer-content {
         flex-direction: column;
@@ -761,9 +828,13 @@ footer {
         min-width: 100%;
     }
     
+    .sectionfour {
+        flex-direction: column;
+    }
     .section-three-img {
         width: 100%;
         height: 500px;
+        background-color: #f8b411;
     }
     
     .resume-tab1 {
@@ -784,12 +855,20 @@ footer {
         font-size: 20px;
         padding: 15px 25px;
     }
+
+    
+    .historydiv, .historydiv-2 {
+        max-width: 100%;
+    }
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 576px) {
     body {
         padding: 15px;
+    }
+    .sectiontwo div p, .sectiontwo-2 div p {
+        font-size: 15px;
     }
     
     .sectionone {
@@ -868,6 +947,14 @@ footer {
     .sectionone div h2 {
         font-size: 32px;
     }
+
+    .sectionfour {
+        flex-direction: column;
+        padding-left: 0px;
+        padding-right: 0px;
+
+    }   
+
     
     .sectionone div h1 {
         font-size: 16px;
@@ -938,6 +1025,10 @@ footer {
     header {
         padding: 1rem 0.5rem;
     }
+
+    .histone {
+        padding: 5px;;
+    }
     
     .menu-btn {
         width: 50px;
@@ -960,5 +1051,23 @@ footer {
     
     .subtitle {
         font-size: 1rem;
+    }
+
+    .section-header p {
+        padding: 5px;
+    }
+
+    .sectionthree {
+        padding: 0;
+    }
+
+    .sectionfour {
+        flex-direction: column;
+    }
+
+    .section-three-img {
+        width: 100%;
+        height: 400px;
+        background-color: #f8b411;
     }
 }
